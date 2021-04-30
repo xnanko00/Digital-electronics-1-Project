@@ -107,18 +107,17 @@ begin
                         end if;
 
                     when PRESS1 =>
-                        if (s_current = "1010") then
-                            s_state <= START;
-                            s_correct <= "0000";
-                        elsif (s_current = "1011") then
-                            s_state <= START;
-                            s_correct <= "0000";
-                        end if;
                         if (s_current = keypad_i) then
                             s_display := s_current;
                         else
                             if (s_current = "0111") then  --7
                                 s_correct(0) <= '1';
+                            elsif (s_current = "1010") then
+                                s_state <= START;
+                                s_correct <= "0000";
+                            elsif (s_current = "1011") then
+                                s_state <= START;
+                                s_correct <= "0000";
                             end if;
                             s_state <= RELEASE1;
                             s_current   <= c_ZERO;
@@ -137,7 +136,7 @@ begin
                         if (s_current = keypad_i) then
                             s_display := s_current;
                         else
-                            if (s_current = "0011") then
+                            if (s_current = "0011") then    --3
                                 s_correct(1) <= '1';
                             elsif (s_current = "1010") then
                                 s_state <= START;
@@ -163,7 +162,7 @@ begin
                         if (s_current = keypad_i) then
                             s_display := s_current;
                         else
-                            if (s_current = "0101") then
+                            if (s_current = "0101") then    --5
                                 s_correct(2) <= '1';
                             elsif (s_current = "1010") then
                                 s_state <= RELEASE1;
@@ -189,7 +188,7 @@ begin
                         if (s_current = keypad_i) then
                             s_display := s_current;
                         else
-                            if (s_current = "0000") then
+                            if (s_current = "0000") then    --0
                                 s_correct(3) <= '1';
                             elsif (s_current = "1010") then
                                 s_state <= RELEASE2;
