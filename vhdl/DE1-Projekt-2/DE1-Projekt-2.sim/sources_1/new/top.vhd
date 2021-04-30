@@ -36,7 +36,8 @@ entity top is
            BTN : in STD_LOGIC_VECTOR;
            JA : OUT STD_LOGIC_VECTOR (8 - 1 downto 0);
            JB : out STD_LOGIC_VECTOR (4 - 1 downto 0);
-           JC : IN  STD_LOGIC_VECTOR (4 - 1 downto 0);
+           row : IN  STD_LOGIC_VECTOR (4 - 1 downto 0);
+           col : out  STD_LOGIC_VECTOR (4 - 1 downto 0);
            JD : OUT STD_LOGIC_VECTOR);
            
 end top;
@@ -58,7 +59,8 @@ begin
             clk     => CLK100MHZ,
             reset   => btn(0),
             hex_o   => s_keypad,
-            row_i   => JC
+            row_i   => row,
+            col_o   => col
         );
         
     lock : entity work.lock
