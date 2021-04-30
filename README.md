@@ -1,11 +1,11 @@
 # Digital-electronics-1-Project
 
 ## Team members: 
-Nanko     Matej
-Nikolic   Predrag
-Ondriš    Mário
-Opluštil  Filip
-Pijáček   Štěpán
+Nanko     Matej <br>
+Nikolic   Predrag <br>
+Ondriš    Mário <br>
+Opluštil  Filip <br>
+Pijáček   Štěpán <br>
 
 [Our project folder](https://github.com/xnanko00/Digital-electronics-1-Project)
 
