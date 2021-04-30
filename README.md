@@ -25,4 +25,8 @@ TODO
 TODO
 
 ## References 
-TODO
+
+https://reference.digilentinc.com/_media/reference/programmable-logic/arty-a7/arty_a7_sch.pdf
+https://reference.digilentinc.com/_media/reference/pmod/pmodkypd/pmodkypd_sch.pdf
+http://fpga.fm4dd.com/?pmod/7seg4
+https://store.digilentinc.com/arty-a7-artix-7-fpga-development-board/
