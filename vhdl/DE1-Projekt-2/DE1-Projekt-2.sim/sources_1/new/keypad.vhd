@@ -168,17 +168,17 @@ begin
                         end if;
                      when COL_4 =>
                         col_o <= "1110";
---                        if(row_i ="0111") then
---                            s_hex := "1010";    --A
---                        elsif(row_i ="1011") then
---                            s_hex := "1011";    --B
+                        if(row_i ="0111") then
+                            s_hex := "1010";    --A (vymazanie predchadzajuceho znaku)
+                        elsif(row_i ="1011") then
+                            s_hex := "1011";    --B (vymazanie vsetkeho)
 --                        elsif(row_i ="1101") then
 --                            s_hex := "1100";    --C
 --                        elsif(row_i ="1110") then
 --                            s_hex := "1101";    --D
 --                        else
                             s_hex := "1111";
---                        end if;
+                        end if;
         
                 end case; 
             end if;

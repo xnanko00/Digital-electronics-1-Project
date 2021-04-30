@@ -98,7 +98,7 @@ begin
                 case s_state is
                 
                     when START =>
-                        if (keypad_i = "1111") then
+                        if (keypad_i = "1111" or keypad_i = "1010" or  keypad_i = "1011") then
                             s_current   <= c_ZERO;
                         else
                             s_state <= PRESS1;
@@ -107,6 +107,13 @@ begin
                         end if;
 
                     when PRESS1 =>
+                        if (s_current = "1010") then
+                            s_state <= START;
+                            s_correct <= "0000";
+                        elsif (s_current = "1011") then
+                            s_state <= START;
+                            s_correct <= "0000";
+                        end if;
                         if (s_current = keypad_i) then
                             s_display := s_current;
                         else
@@ -118,11 +125,12 @@ begin
                         end if;
                         
                     when RELEASE1 =>
-                        if (keypad_i = "1111") then
+                        if (keypad_i = "1111" or keypad_i = "1010") then
                             s_current   <= c_ZERO;
                         else
                             s_state <= PRESS2;
                             s_current <= keypad_i;
+                            s_display := keypad_i;
                         end if;
                         
                     when PRESS2 =>
@@ -131,17 +139,24 @@ begin
                         else
                             if (s_current = "0011") then
                                 s_correct(1) <= '1';
+                            elsif (s_current = "1010") then
+                                s_state <= START;
+                                s_correct(0) <= '0';
+                            elsif (s_current = "1011") then
+                                s_state <= START;
+                                s_correct <= "0000";
                             end if;
                             s_state <= RELEASE2;
                             s_current   <= c_ZERO;
                         end if;
                         
                     when RELEASE2 =>
-                        if (keypad_i = "1111") then
+                        if (keypad_i = "1111" or keypad_i = "1010") then
                             s_current   <= c_ZERO;
                         else
                             s_state <= PRESS3;
                             s_current <= keypad_i;
+                            s_display := keypad_i;
                         end if;
                         
                     when PRESS3 =>
@@ -150,6 +165,12 @@ begin
                         else
                             if (s_current = "0101") then
                                 s_correct(2) <= '1';
+                            elsif (s_current = "1010") then
+                                s_state <= RELEASE1;
+                                s_correct(1) <= '0';
+                            elsif (s_current = "1011") then
+                                s_state <= START;
+                                s_correct <= "0000";
                             end if;
                             s_state <= RELEASE3;
                             s_current   <= c_ZERO;
@@ -161,6 +182,7 @@ begin
                         else
                             s_state <= PRESS4;
                             s_current <= keypad_i;
+                            s_display := keypad_i;
                         end if;
                         
                     when PRESS4 =>
@@ -169,6 +191,12 @@ begin
                         else
                             if (s_current = "0000") then
                                 s_correct(3) <= '1';
+                            elsif (s_current = "1010") then
+                                s_state <= RELEASE2;
+                                s_correct(2) <= '0';
+                            elsif (s_current = "1011") then
+                                s_state <= START;
+                                s_correct <= "0000";
                             end if;
                             s_state <= RELEASE4;
                             s_current   <= c_ZERO;

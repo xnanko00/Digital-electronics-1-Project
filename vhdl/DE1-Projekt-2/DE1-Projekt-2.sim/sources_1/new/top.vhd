@@ -33,12 +33,12 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity top is
     Port ( CLK100MHZ : in STD_LOGIC;
-           BTN : in STD_LOGIC_VECTOR;
-           JA : OUT STD_LOGIC_VECTOR (8 - 1 downto 0);
-           JB : out STD_LOGIC_VECTOR (4 - 1 downto 0);
-           row : IN  STD_LOGIC_VECTOR (4 - 1 downto 0);
-           col : out  STD_LOGIC_VECTOR (4 - 1 downto 0);
-           JD : OUT STD_LOGIC_VECTOR);
+           BTN  : IN STD_LOGIC_VECTOR;
+           JA   : OUT STD_LOGIC_VECTOR (8 - 1 downto 0);
+           JB   : OUT STD_LOGIC_VECTOR (4 - 1 downto 0);
+           row  : IN  STD_LOGIC_VECTOR (4 - 1 downto 0);
+           col  : OUT  STD_LOGIC_VECTOR (4 - 1 downto 0);
+           JD   : OUT STD_LOGIC_VECTOR);
            
 end top;
 
