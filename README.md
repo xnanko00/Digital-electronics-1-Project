@@ -10,7 +10,9 @@ Pijáček   Štěpán <br>
 [Our project folder](https://github.com/xnanko00/Digital-electronics-1-Project)
 
 ## Project objectives:
-TODO
+In this project we are supposed to make a program in VHDL for door lock system with PIN (4-digit) terminal, 4x3 push buttons, 4-digit 7-segment display, relay for door lock control 
+
+### Diagram
 
 ## Hardware description 
 TODO
@@ -30,3 +32,5 @@ https://reference.digilentinc.com/_media/reference/programmable-logic/arty-a7/ar
 https://reference.digilentinc.com/_media/reference/pmod/pmodkypd/pmodkypd_sch.pdf <br>
 http://fpga.fm4dd.com/?pmod/7seg4 <br>
 https://store.digilentinc.com/arty-a7-artix-7-fpga-development-board/ <br>
+https://store.digilentinc.com/pmod-ssr-solid-state-relay-electronic-switch/ <br>
+https://store.digilentinc.com/pmod-kypd-16-button-keypad/ <br>
