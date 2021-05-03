@@ -41,7 +41,7 @@ entity lock is
         data1_o : out  std_logic_vector(4 - 1 downto 0);
         data2_o : out  std_logic_vector(4 - 1 downto 0);
         data3_o : out  std_logic_vector(4 - 1 downto 0);
-        door_o  : out  std_logic_vector
+        door_o  : out  std_logic
 
     );
 end lock;
@@ -74,23 +74,31 @@ architecture Behavioral of lock is
     signal   r_data1    : STD_LOGIC_VECTOR(4 - 1 downto 0);
     signal   r_data2    : STD_LOGIC_VECTOR(4 - 1 downto 0);
     signal   r_data3    : STD_LOGIC_VECTOR(4 - 1 downto 0);
-    signal   r_door     : STD_LOGIC_VECTOR;
+    signal   r_door     : std_logic;
 
     -- Specific values for local counter
     constant c_ZERO       : STD_LOGIC_VECTOR(4 - 1 downto 0) := b"1111";
 
 begin
-        
+    clk_en0 : entity work.clock_enable
+        generic map(
+            g_MAX => 10       -- g_MAX = 10 ms / (1/100 MHz) 
+        )
+        port map(
+            clk   => clk,
+            reset => reset,
+            ce_o  => s_en
+        );
     p_lock : process(clk)
     variable   s_display  : STD_LOGIC_VECTOR(4 - 1 downto 0);
-    variable   s_door     : STD_LOGIC_VECTOR;
+    variable   s_door     : std_logic;
     
     begin
         if rising_edge(clk) then
         s_door := r_door;
             if (reset = '1') then       -- Synchronous reset
                 s_state <= START ;      -- Set initial state
-                s_door := "1";
+                s_door := '1';
                 s_current <= "1111";
                 s_display := "0000";
                 
@@ -203,13 +211,13 @@ begin
                         
                     when RELEASE4 =>
                         if (s_correct = "1111") then
-                            if (s_door = "1") then
-                                s_door := "0";
+                            if (s_door = '1') then
+                                s_door := '0';
                                 else
-                                s_door := "1";
+                                s_door := '1';
                                 end if;
                             s_state <= START;
-                            s_correct <= "00";
+                            s_correct <= "0000";
                             s_display := "1111";
                         else
                             s_state <= START;
@@ -241,6 +249,8 @@ begin
                 r_data1 <= s_current;
                 r_data2 <= s_current;
                 r_data3 <= s_current;
+            when others =>
+                
 
         end case;
         end if; -- Rising edge
