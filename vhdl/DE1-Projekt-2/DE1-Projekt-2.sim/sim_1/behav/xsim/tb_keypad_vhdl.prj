@@ -1,0 +1,8 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../sources_1/new/clock_enable.vhd" \
+"../../../sources_1/new/keypad.vhd" \
+"../../../../DE1-Projekt-2.srcs/sim_1/new/tb_keypad.vhd" \
+
+# Do not sort compile order
+nosort

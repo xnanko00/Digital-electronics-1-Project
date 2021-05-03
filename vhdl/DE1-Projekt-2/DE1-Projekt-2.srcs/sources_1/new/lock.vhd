@@ -57,7 +57,8 @@ architecture Behavioral of lock is
                      PRESS3,
                      RELEASE3,
                      PRESS4,
-                     RELEASE4
+                     RELEASE4,
+                     WAITING
                      );
     -- Define the signal that uses different states
     signal s_state  : t_state;
@@ -65,7 +66,8 @@ architecture Behavioral of lock is
     -- Internal clock enable
     signal s_en     : std_logic;
     -- Local delay counter
-
+    signal s_cnt    : unsigned(5 - 1 downto 0);
+    
     signal   s_col      : STD_LOGIC_VECTOR (4 - 1 downto 0);
     signal   s_current  : STD_LOGIC_VECTOR(4 - 1 downto 0);
 
@@ -77,6 +79,7 @@ architecture Behavioral of lock is
     signal   r_door     : std_logic;
 
     -- Specific values for local counter
+    constant c_DELAY_50ms : unsigned(5 - 1 downto 0)         := b"0_0100";  --65ns xd
     constant c_ZERO       : STD_LOGIC_VECTOR(4 - 1 downto 0) := b"1111";
 
 begin
@@ -120,19 +123,22 @@ begin
                         else
                             if (s_current = "0111") then  --7
                                 s_correct(0) <= '1';
+                                s_state <= RELEASE1;
+                                s_current   <= c_ZERO;
                             elsif (s_current = "1010") then
                                 s_state <= START;
                                 s_correct <= "0000";
                             elsif (s_current = "1011") then
                                 s_state <= START;
                                 s_correct <= "0000";
+                            else
+                                s_state <= RELEASE1;
+                                s_current   <= c_ZERO;
                             end if;
-                            s_state <= RELEASE1;
-                            s_current   <= c_ZERO;
                         end if;
                         
                     when RELEASE1 =>
-                        if (keypad_i = "1111" or keypad_i = "1010") then
+                        if (keypad_i = "1111") then  --or keypad_i = "1010"
                             s_current   <= c_ZERO;
                         else
                             s_state <= PRESS2;
@@ -146,19 +152,22 @@ begin
                         else
                             if (s_current = "0011") then    --3
                                 s_correct(1) <= '1';
+                                s_state <= RELEASE2;
+                                s_current   <= c_ZERO;
                             elsif (s_current = "1010") then
                                 s_state <= START;
                                 s_correct(0) <= '0';
                             elsif (s_current = "1011") then
                                 s_state <= START;
                                 s_correct <= "0000";
+                            else
+                                s_state <= RELEASE2;
+                                s_current   <= c_ZERO;
                             end if;
-                            s_state <= RELEASE2;
-                            s_current   <= c_ZERO;
                         end if;
                         
                     when RELEASE2 =>
-                        if (keypad_i = "1111" or keypad_i = "1010") then
+                        if (keypad_i = "1111") then
                             s_current   <= c_ZERO;
                         else
                             s_state <= PRESS3;
@@ -172,15 +181,19 @@ begin
                         else
                             if (s_current = "0101") then    --5
                                 s_correct(2) <= '1';
+                                s_state <= RELEASE3;
+                                s_current   <= c_ZERO;
                             elsif (s_current = "1010") then
+                                r_data2 <= c_ZERO;
                                 s_state <= RELEASE1;
                                 s_correct(1) <= '0';
                             elsif (s_current = "1011") then
                                 s_state <= START;
                                 s_correct <= "0000";
+                            else
+                                s_state <= RELEASE3;
+                                s_current   <= c_ZERO;
                             end if;
-                            s_state <= RELEASE3;
-                            s_current   <= c_ZERO;
                         end if;
                         
                     when RELEASE3 =>
@@ -198,15 +211,16 @@ begin
                         else
                             if (s_current = "0000") then    --0
                                 s_correct(3) <= '1';
+                                s_state <= RELEASE4;
+                                s_current   <= c_ZERO;
                             elsif (s_current = "1010") then
+                                r_data1 <= c_ZERO;
                                 s_state <= RELEASE2;
                                 s_correct(2) <= '0';
                             elsif (s_current = "1011") then
                                 s_state <= START;
                                 s_correct <= "0000";
                             end if;
-                            s_state <= RELEASE4;
-                            s_current   <= c_ZERO;
                         end if;
                         
                     when RELEASE4 =>
@@ -216,14 +230,19 @@ begin
                                 else
                                 s_door := '1';
                                 end if;
-                            s_state <= START;
-                            s_correct <= "0000";
-                            s_display := "1111";
+                        else
+                        end if;
+                        s_correct <= "0000";
+                        s_state <= WAITING;
+                    when WAITING =>
+                        if(s_cnt < c_DELAY_50ms) then
+                            s_cnt <= s_cnt + 1;
                         else
                             s_state <= START;
                             s_correct <= "0000";
                             s_display := "1111";
-                        end if;
+                            s_state <= START;
+                            end if;    
 
                     -- It is a good programming practice to use the 
                     -- OTHERS clause, even if all CASE choices have 
@@ -237,18 +256,42 @@ begin
 
         case s_state is
             when PRESS1 =>
-                r_data3 <= s_display;
+                if(s_display = "1010" or s_display = "1011") then
+                    r_data3 <= c_ZERO;
+                else
+                    r_data3 <= s_display;
+                end if;
             when PRESS2 =>
-                r_data2 <= s_display;
+                if(s_display = "1010" or s_display = "1011") then
+                    r_data3 <= c_ZERO;
+                    r_data2 <= c_ZERO;
+                else
+                    r_data2 <= s_display;
+                end if;
             when PRESS3 =>
-                r_data1 <= s_display;
+                if(s_display = "1010") then
+                    r_data2 <= c_ZERO;
+                elsif(s_display = "1011") then
+                    r_data3 <= c_ZERO;
+                    r_data2 <= c_ZERO;
+                else
+                    r_data1 <= s_display;
+                end if;
             when PRESS4 =>
-                r_data0 <= s_display;
+                if(s_display = "1010") then
+                    r_data1 <= c_ZERO;
+                elsif(s_display = "1011") then
+                    r_data3 <= c_ZERO;
+                    r_data2 <= c_ZERO;
+                    r_data1 <= c_ZERO;
+                else
+                    r_data0 <= s_display;
+                end if;
             when START =>
-                r_data0 <= s_current;
-                r_data1 <= s_current;
-                r_data2 <= s_current;
-                r_data3 <= s_current;
+                r_data0 <= c_ZERO;
+                r_data1 <= c_ZERO;
+                r_data2 <= c_ZERO;
+                r_data3 <= c_ZERO;
             when others =>
                 
 

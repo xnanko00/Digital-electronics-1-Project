@@ -62,7 +62,7 @@ begin
 
     clk_en0 : entity work.clock_enable
         generic map(
-            g_MAX => 1000000       -- g_MAX = 10 ms / (1/100 MHz) 
+            g_MAX => 1--000000       -- g_MAX = 10 ms / (1/100 MHz) 
         )
         port map(
             clk   => clk,
@@ -76,6 +76,7 @@ begin
         s_hex :=r_hex;
             if (reset = '1') then       -- Synchronous reset
                 s_state <= COL_1;      -- Set initial state
+                s_cnt <= c_ZERO;
                 
             elsif (s_en = '1') then
                 case s_state is
@@ -176,7 +177,7 @@ begin
 --                            s_hex := "1100";    --C
 --                        elsif(row_i ="1110") then
 --                            s_hex := "1101";    --D
---                        else
+                        else
                             s_hex := "1111";
                         end if;
         

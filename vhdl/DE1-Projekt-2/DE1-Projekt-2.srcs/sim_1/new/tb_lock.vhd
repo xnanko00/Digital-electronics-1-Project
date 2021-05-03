@@ -54,7 +54,7 @@ begin
         
     p_clk_gen : process
     begin
-        while now < 16000 ns loop         -- 75 periods of 100MHz clock
+        while now < 18000 ns loop         -- 75 periods of 100MHz clock
             s_clk_100MHz <= '0';
             wait for c_CLK_100MHZ_PERIOD / 2;
             s_clk_100MHz <= '1';
@@ -71,25 +71,55 @@ begin
         s_reset <= '0';
         wait for 50 ns;
         
-        s_keypad <= "0101";
+        s_keypad <= "0101";     --1st char
         wait for 500 ns;
         
-        s_keypad <= "1111";
+        s_keypad <= "1111";     --release
         wait for 500 ns;
         
-        s_keypad <= "1000";
+        s_keypad <= "1000";     --2nd char
         wait for 500 ns;
         
-        s_keypad <= "1111";
+        s_keypad <= "1111";     --release
         wait for 500 ns;
         
-        s_keypad <= "0111";
+        s_keypad <= "1011";     --delete everything
         wait for 500 ns;
         
-        s_keypad <= "1111";
+        s_keypad <= "1111";     --release
         wait for 500 ns;
         
-        s_keypad <= "0000";
+        s_keypad <= "0101";     --1st char
+        wait for 500 ns;
+        
+        s_keypad <= "1111";     --release
+        wait for 500 ns;
+        
+        s_keypad <= "1000";     --2nd char
+        wait for 500 ns;
+        
+        s_keypad <= "1111";     --release
+        wait for 500 ns;
+        
+        s_keypad <= "1010";     --delete 2nd char
+        wait for 500 ns;
+        
+        s_keypad <= "1111";     --release
+        wait for 500 ns;
+        
+        s_keypad <= "1000";     --2nd char
+        wait for 500 ns;
+        
+        s_keypad <= "1111";     --release
+        wait for 500 ns;
+        
+        s_keypad <= "0100";     --3rd char
+        wait for 500 ns;
+        
+        s_keypad <= "1111";     --release
+        wait for 500 ns;
+        
+        s_keypad <= "0000";     --4th char
         wait for 500 ns;
         
         s_keypad <= "1111";     --zly kod
