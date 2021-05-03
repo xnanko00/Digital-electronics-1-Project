@@ -28,10 +28,10 @@ TODO
 TODO
 
 ### Simulation of keypad:
-![Schematic](images/simulation_keypad.png)
+![KeypadSimulation](images/simulation_keypad.png)
 
 ### Simulation of lock:
-![Schematic](images/simulation_lock.png)
+![LockSimulation](images/simulation1.png)
 
 ## Video
 TODO
