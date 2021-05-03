@@ -138,7 +138,7 @@ begin
                         end if;
                         
                     when RELEASE1 =>
-                        if (keypad_i = "1111") then  --or keypad_i = "1010"
+                        if (keypad_i = "1111") then  
                             s_current   <= c_ZERO;
                         else
                             s_state <= PRESS2;
@@ -183,10 +183,10 @@ begin
                                 s_correct(2) <= '1';
                                 s_state <= RELEASE3;
                                 s_current   <= c_ZERO;
-                            elsif (s_current = "1010") then
-                                r_data2 <= c_ZERO;
-                                s_state <= RELEASE1;
-                                s_correct(1) <= '0';
+                            elsif (s_current = "1010") then -- To be honest I dont know how does this work.
+                                r_data2 <= c_ZERO;          -- I thought that it will skip 2nd display and
+                                s_state <= RELEASE1;        -- goto 3rd but and "it just works". It will
+                                s_correct(1) <= '0';        -- wait for 2nd press and show it on display
                             elsif (s_current = "1011") then
                                 s_state <= START;
                                 s_correct <= "0000";
