@@ -14,14 +14,24 @@ In this project we are supposed to make a program in VHDL for door lock system w
 
 ### Diagram
 
+![Diagram](images/diagram.png)
+
 ## Hardware description 
-TODO
+
+### Board schematic of our project:
+![Schematic](images/schematic.png)
 
 ## VHDL modules description 
 TODO
 
 ## TOP module description and simulations
 TODO
+
+### Simulation of keypad:
+![Schematic](images/simulation_keypad.png)
+
+### Simulation of lock:
+![Schematic](images/simulation_lock.png)
 
 ## Video
 TODO
