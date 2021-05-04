@@ -10,7 +10,7 @@ Pijáček   Štěpán <br>
 [Our project folder](https://github.com/xnanko00/Digital-electronics-1-Project)
 
 ## Project objectives:
-In this project we are supposed to make a program in VHDL for door lock system with PIN (4-digit) terminal, 4x3 push buttons, 4-digit 7-segment display, relay for door lock control 
+In this project we are supposed to make a program in VHDL for door lock system with PIN (4-digit) terminal, 4x3 push buttons, 4-digit 7-segment display, relay for door lock control. As an extra feature we also added delete/reset button that resets keyboard sequence.
 
 ### Diagram
 
@@ -22,15 +22,34 @@ In this project we are supposed to make a program in VHDL for door lock system w
 ![Schematic](images/schematic.png)
 
 ## VHDL modules description 
-TODO
+
+### Keyboard
+We programmed our keyboard to ...
+
+### VHDL lock:
+```vhdl
+entity lock is
+    port(
+        clk     : in  std_logic;
+        reset   : in  std_logic;
+        keypad_i: in std_logic_vector(4 - 1 downto 0);
+        data0_o : out  std_logic_vector(4 - 1 downto 0);
+        data1_o : out  std_logic_vector(4 - 1 downto 0);
+        data2_o : out  std_logic_vector(4 - 1 downto 0);
+        data3_o : out  std_logic_vector(4 - 1 downto 0);
+        door_o  : out  std_logic
+
+    );
+end lock;
+```
 
 ## TOP module description and simulations
 TODO
 
-### Simulation of keypad:
+### Simulation of a keypad:
 ![KeypadSimulation](images/simulation_keypad.png)
 
-### Simulation of lock:
+### Simulation of a lock:
 ![LockSimulation](images/simulation1.png)
 
 ## Video
