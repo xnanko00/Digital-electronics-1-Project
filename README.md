@@ -506,7 +506,7 @@ end Behavioral;
 ### [Our testbenches](https://github.com/xnanko00/Digital-electronics-1-Project/tree/main/vhdl/DE1-Projekt-2/DE1-Projekt-2.srcs/sim_1/new)
 
 ## Video
-TODO
+[Video presentation of our project](https://youtu.be/yFNYqereif0)
 
 ## References 
 
