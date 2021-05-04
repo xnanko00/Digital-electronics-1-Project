@@ -18,7 +18,8 @@ In this project we are supposed to make a program in VHDL for door lock system w
 
 ## Hardware description 
 
-### Board schematic of our project:
+### Board schematic of our project(for higher resolution you need to open it in microcap):
+
 ![Schematic](images/schematic.png)
 
 ## VHDL modules description 
