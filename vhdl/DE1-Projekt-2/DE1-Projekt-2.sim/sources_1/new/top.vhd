@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Company: Matej Nanko
+-- Engineer: Matej Nanko
 -- 
 -- Create Date: 03/17/2021 04:12:11 PM
 -- Design Name: 
@@ -33,12 +33,12 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity top is
     Port ( CLK100MHZ : in STD_LOGIC;
-           BTN  : IN STD_LOGIC_VECTOR;
+           BTN  : IN STD_LOGIC;
            JA   : OUT STD_LOGIC_VECTOR (8 - 1 downto 0);
            JB   : OUT STD_LOGIC_VECTOR (4 - 1 downto 0);
+           JD   : OUT STD_LOGIC;
            row  : IN  STD_LOGIC_VECTOR (4 - 1 downto 0);
-           col  : OUT  STD_LOGIC_VECTOR (4 - 1 downto 0);
-           JD   : OUT STD_LOGIC_VECTOR);
+           col  : OUT  STD_LOGIC_VECTOR (4 - 1 downto 0));
            
 end top;
 
@@ -57,7 +57,7 @@ begin
         port map(
             --- WRITE YOUR CODE HERE
             clk     => CLK100MHZ,
-            reset   => btn(0),
+            reset   => btn,
             hex_o   => s_keypad,
             row_i   => row,
             col_o   => col
@@ -67,7 +67,7 @@ begin
         port map(
             --- WRITE YOUR CODE HERE
             clk      => CLK100MHZ,
-            reset    => btn(0),
+            reset    => btn,
             keypad_i => s_keypad,
             data0_o  => s_data0,
             data1_o  => s_data1,
@@ -79,7 +79,7 @@ begin
     driver_seg_4 : entity work.driver_7seg_4digits
         port map(
             clk        => CLK100MHZ,
-            reset      => BTN(0),
+            reset      => BTN,
             data0_i => s_data0,
             data1_i => s_data1,
             data2_i => s_data2,

@@ -2,8 +2,13 @@
 2020.2
 Nov 18 2020
 09:47:47
-D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.sim/sources_1/new/clock_enable.vhd,1615385584,vhdl,D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.srcs/sources_1/new/lock.vhd,,,clock_enable,,,,,,,,
-D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.sim/sources_1/new/keypad.vhd,1620063188,vhdl,D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.srcs/sim_1/new/tb_keypad.vhd,,,keypad,,,,,,,,
+D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.sim/sim_1/new/tb_top.vhd,1620121146,vhdl,,,,tb_top,,,,,,,,
+D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.sim/sources_1/new/clock_enable.vhd,1615385584,vhdl,D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.sim/sources_1/new/driver_7seg_4digits.vhd;D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.sim/sources_1/new/keypad.vhd;D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.srcs/sources_1/new/lock.vhd,,,clock_enable,,,,,,,,
+D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.sim/sources_1/new/cnt_up_down.vhd,1616510459,vhdl,D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.sim/sources_1/new/driver_7seg_4digits.vhd,,,cnt_up_down,,,,,,,,
+D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.sim/sources_1/new/driver_7seg_4digits.vhd,1619378002,vhdl,D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.sim/sources_1/new/top.vhd,,,driver_7seg_4digits,,,,,,,,
+D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.sim/sources_1/new/hex_7seg.vhd,1620119775,vhdl,D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.sim/sources_1/new/driver_7seg_4digits.vhd,,,hex_7seg,,,,,,,,
+D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.sim/sources_1/new/keypad.vhd,1620063188,vhdl,D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.sim/sources_1/new/top.vhd,,,keypad,,,,,,,,
+D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.sim/sources_1/new/top.vhd,1620119640,vhdl,D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.sim/sim_1/new/tb_top.vhd,,,top,,,,,,,,
 D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.srcs/sim_1/new/tb_keypad.vhd,1620063093,vhdl,,,,tb_keypad,,,,,,,,
 D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.srcs/sim_1/new/tb_lock.vhd,1620063596,vhdl,,,,tb_lock,,,,,,,,
-D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.srcs/sources_1/new/lock.vhd,1620062284,vhdl,D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.srcs/sim_1/new/tb_lock.vhd,,,lock,,,,,,,,
+D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.srcs/sources_1/new/lock.vhd,1620069725,vhdl,D:/Users/matej/Desktop/Documents/FEKT/DE1/DE1-Projekt-2/DE1-Projekt-2.sim/sources_1/new/top.vhd,,,lock,,,,,,,,

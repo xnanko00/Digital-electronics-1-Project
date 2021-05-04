@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Company: Matej Nanko
+-- Engineer: Matej Nanko
 -- 
 -- Create Date: 04/25/2021 09:14:39 PM
 -- Design Name: 
@@ -79,7 +79,7 @@ architecture Behavioral of lock is
     signal   r_door     : std_logic;
 
     -- Specific values for local counter
-    constant c_DELAY_50ms : unsigned(5 - 1 downto 0)         := b"0_0100";  --65ns xd
+    constant c_DELAY : unsigned(5 - 1 downto 0)         := b"1_0000";
     constant c_ZERO       : STD_LOGIC_VECTOR(4 - 1 downto 0) := b"1111";
 
 begin
@@ -125,10 +125,10 @@ begin
                                 s_correct(0) <= '1';
                                 s_state <= RELEASE1;
                                 s_current   <= c_ZERO;
-                            elsif (s_current = "1010") then
+                            elsif (s_current = "1010") then     --goto start if you press A
                                 s_state <= START;
                                 s_correct <= "0000";
-                            elsif (s_current = "1011") then
+                            elsif (s_current = "1011") then     --goto start if you press B
                                 s_state <= START;
                                 s_correct <= "0000";
                             else
@@ -235,7 +235,7 @@ begin
                         s_correct <= "0000";
                         s_state <= WAITING;
                     when WAITING =>
-                        if(s_cnt < c_DELAY_50ms) then
+                        if(s_cnt < c_DELAY) then
                             s_cnt <= s_cnt + 1;
                         else
                             s_state <= START;
@@ -299,10 +299,10 @@ begin
         end if; -- Rising edge
         r_door <= s_door;
         end process p_lock;
-        data0_o <= r_data0;
+        data0_o <= r_data0; --register to display outputs
         data1_o <= r_data1;
         data2_o <= r_data2;
         data3_o <= r_data3;
-        door_o  <= r_door;
+        door_o  <= r_door;  --register for relay to output
         
 end Behavioral;

@@ -60,8 +60,8 @@ p_7seg_decoder : process(hex_i)
 --            when "1011" => seg_o <= "1100000";     -- B (11)
 --            when "1100" => seg_o <= "0110001";     -- C (12)
 --            when "1101" => seg_o <= "1000010";     -- D (13)
---            when "1110" => seg_o <= "0110000";     -- E (14)
-            when others => seg_o <= "11111111";     -- prazdny display
+            when "1111" => seg_o <= "1111111";     -- prazdny display
+            when others => seg_o <= "1111111";     -- prazdny display
         end case;
     end process p_7seg_decoder;
 

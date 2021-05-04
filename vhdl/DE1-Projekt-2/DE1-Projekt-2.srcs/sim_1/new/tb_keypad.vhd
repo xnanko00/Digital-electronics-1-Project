@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Company: Matej Nanko
+-- Engineer: Matej Nanko
 -- 
 -- Create Date: 05/03/2021 05:41:45 PM
 -- Design Name: 

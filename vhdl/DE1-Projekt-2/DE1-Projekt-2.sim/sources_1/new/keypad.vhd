@@ -1,9 +1,9 @@
 ----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
+-- Company: Matej Nanko
+-- Engineer: Matej Nanko
 -- 
 -- Create Date: 04/20/2021 04:16:20 PM
--- Design Name: 
+-- Design Name: keypad module 
 -- Module Name: keypad - Behavioral
 -- Project Name: 
 -- Target Devices: 
@@ -12,7 +12,7 @@
 -- 
 -- Dependencies: 
 -- 
--- Revision:
+-- Revision: 1.0
 -- Revision 0.01 - File Created
 -- Additional Comments:
 -- 
@@ -81,15 +81,14 @@ begin
             elsif (s_en = '1') then
                 case s_state is
                      when COL_1 =>
-                        if(s_cnt < c_DELAY_50ms) then
+                        if(s_cnt < c_DELAY_50ms) then   --change collum every 50 ms 
                             s_cnt <= s_cnt + 1;
                         else
-                            if (s_hex = "1111") then
+                            if (s_hex = "1111") then    --wait if there is output to lock
                                 s_state <= COL_2;
                                 s_cnt <= c_ZERO;
                             else
-                            
-                                s_state <= COL_1;
+                                s_state <= COL_1;       --if yes go wait in this step
                             end if;
                         end if;
                      when COL_2 =>
@@ -129,8 +128,8 @@ begin
 
                 case s_state is
                      when COL_1 =>
-                        col_o <= "0111";
-                        if(row_i ="0111") then
+                        col_o <= "0111";            --collum signal
+                        if(row_i ="0111") then      --setting row input with keypad
                             s_hex := "0001";    --1
                         elsif(row_i ="1011") then
                             s_hex := "0100";    --4
@@ -163,20 +162,20 @@ begin
                         elsif(row_i ="1101") then
                             s_hex := "1001";    --9
 --                        elsif(row_i ="1110") then
---                            s_hex := "1110";    --E
+--                            s_hex := "1110";    --E we are not using this
                         else
                             s_hex := "1111";
                         end if;
                      when COL_4 =>
                         col_o <= "1110";
                         if(row_i ="0111") then
-                            s_hex := "1010";    --A (vymazanie predchadzajuceho znaku)
+                            s_hex := "1010";    --A (deleting of previous character)
                         elsif(row_i ="1011") then
-                            s_hex := "1011";    --B (vymazanie vsetkeho)
+                            s_hex := "1011";    --B (delete everything)
 --                        elsif(row_i ="1101") then
---                            s_hex := "1100";    --C
+--                            s_hex := "1100";    --C we are not using this
 --                        elsif(row_i ="1110") then
---                            s_hex := "1101";    --D
+--                            s_hex := "1101";    --D we are not using this
                         else
                             s_hex := "1111";
                         end if;

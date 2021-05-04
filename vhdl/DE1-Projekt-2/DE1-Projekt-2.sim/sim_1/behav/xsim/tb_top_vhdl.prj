@@ -1,0 +1,13 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../sources_1/new/clock_enable.vhd" \
+"../../../sources_1/new/cnt_up_down.vhd" \
+"../../../sources_1/new/hex_7seg.vhd" \
+"../../../sources_1/new/driver_7seg_4digits.vhd" \
+"../../../sources_1/new/keypad.vhd" \
+"../../../../DE1-Projekt-2.srcs/sources_1/new/lock.vhd" \
+"../../../sources_1/new/top.vhd" \
+"../../new/tb_top.vhd" \
+
+# Do not sort compile order
+nosort
