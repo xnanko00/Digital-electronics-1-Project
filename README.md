@@ -18,7 +18,7 @@ In this project we are supposed to make a program in VHDL for door lock system w
 
 ## Hardware description 
 
-### Board schematic of our project(for higher resolution you need to open it in microcap [here](https://github.com/xnanko00/Digital-electronics-1-Project/circuit)):
+### Board schematic of our project(for higher resolution you need to open it in microcap [here](https://github.com/xnanko00/Digital-electronics-1-Project/tree/main/circuit)):
 
 ![Schematic](images/schematic.png)
 
