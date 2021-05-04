@@ -24,10 +24,7 @@ In this project we are supposed to make a program in VHDL for door lock system w
 
 ## VHDL modules description 
 
-### Keyboard
-We programmed our keyboard to ...
-
-### VHDL lock:
+### [VHDL lock](https://github.com/xnanko00/Digital-electronics-1-Project/tree/main/vhdl/DE1-Projekt-2/DE1-Projekt-2.srcs/sources_1/new):
 ```vhdl
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
@@ -491,6 +488,8 @@ end Behavioral;
 
 ## TOP module description and simulations
 
+### [Keypad, top and essencials](https://github.com/xnanko00/Digital-electronics-1-Project/tree/main/vhdl/DE1-Projekt-2/DE1-Projekt-2.sim/sources_1/new)
+
 ### Simulation of a top:
 ![KeypadSimulation](images/simulation_top.png)
 
@@ -500,6 +499,7 @@ end Behavioral;
 ### Simulation of a lock:
 ![LockSimulation](images/simulation1.png)
 
+### [Our testbenches](https://github.com/xnanko00/Digital-electronics-1-Project/tree/main/vhdl/DE1-Projekt-2/DE1-Projekt-2.srcs/sim_1/new)
 ## Video
 TODO
 
