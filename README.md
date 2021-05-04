@@ -12,13 +12,13 @@ Pijáček   Štěpán <br>
 ## Project objectives:
 In this project we are supposed to make a program in VHDL for door lock system with PIN (4-digit) terminal, 4x3 push buttons, 4-digit 7-segment display, relay for door lock control. As an extra feature we also added delete/reset button that resets keyboard sequence.
 
-### Diagram
-
-![Diagram](images/diagram.png)
-
 ### Top layout
 
 ![Diagram](images/Top.png)
+
+### Diagram
+
+![Diagram](images/diagram.png)
 
 ## Hardware description 
 
@@ -504,6 +504,7 @@ end Behavioral;
 ![LockSimulation](images/simulation1.png)
 
 ### [Our testbenches](https://github.com/xnanko00/Digital-electronics-1-Project/tree/main/vhdl/DE1-Projekt-2/DE1-Projekt-2.srcs/sim_1/new)
+
 ## Video
 TODO
 
